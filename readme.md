@@ -1,5 +1,3 @@
-[npm-badge]: https://img.shields.io/npm/v/react-native-material-textfield.svg?colorB=ff6d00
-[npm-url]: https://npmjs.com/package/react-native-material-textfield
 [license-badge]: https://img.shields.io/npm/l/react-native-material-textfield.svg?colorB=448aff
 [license-url]: https://raw.githubusercontent.com/n4kz/react-native-material-textfield/master/license.txt
 [travis-badge]: https://api.travis-ci.org/n4kz/react-native-material-textfield.svg?branch=master
@@ -12,7 +10,6 @@
 
 # react-native-material-textfield
 
-[![npm][npm-badge]][npm-url]
 [![license][license-badge]][license-url]
 [![travis][travis-badge]][travis-url]
 [![codeclimate][codeclimate-badge]][codeclimate-url]
@@ -41,7 +38,7 @@ Material texfield with consistent behaviour on iOS and Android
 ## Installation
 
 ```bash
-npm install --save react-native-material-textfield
+npm i https://github.com/patlukas/react-native-material-textfield
 ```
 
 ## Usage
@@ -159,7 +156,7 @@ Other [TextInput][rn-textinput] properties will also work.
 ## Example
 
 ```bash
-git clone https://github.com/n4kz/react-native-material-textfield
+git clone https://github.com/patlukas/react-native-material-textfield
 cd react-native-material-textfield/example
 npm install
 npm run ios # or npm run android
@@ -169,4 +166,3 @@ npm run ios # or npm run android
 
 BSD License
 
-Copyright 2017-2019 Alexander Nazarov. All rights reserved.
