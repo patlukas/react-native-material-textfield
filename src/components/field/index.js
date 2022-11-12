@@ -7,7 +7,6 @@ import {
   Animated,
   StyleSheet,
   Platform,
-  ViewPropTypes,
 } from 'react-native';
 
 import Line from '../line';
@@ -79,14 +78,9 @@ export default class TextField extends PureComponent {
       input: PropTypes.number,
       left: PropTypes.number,
       right: PropTypes.number,
-      bottom: PropTypes.number,
     }),
 
     labelOffset: Label.propTypes.offset,
-
-    labelTextStyle: Text.propTypes.style,
-    titleTextStyle: Text.propTypes.style,
-    affixTextStyle: Text.propTypes.style,
 
     tintColor: PropTypes.string,
     textColor: PropTypes.string,
@@ -116,9 +110,6 @@ export default class TextField extends PureComponent {
 
     prefix: PropTypes.string,
     suffix: PropTypes.string,
-
-    containerStyle: (ViewPropTypes || View.propTypes).style,
-    inputContainerStyle: (ViewPropTypes || View.propTypes).style,
   };
 
   static inputContainerStyle = styles.inputContainer;
@@ -129,7 +120,6 @@ export default class TextField extends PureComponent {
     input: 8,
     left: 0,
     right: 0,
-    bottom: 8,
   };
 
   static labelOffset = {
@@ -224,6 +214,7 @@ export default class TextField extends PureComponent {
     let options = {
       toValue: this.focusState(),
       duration,
+      useNativeDriver: true
     };
 
     startAnimation(focusAnimation, options, this.onFocusAnimationEnd);
@@ -237,6 +228,7 @@ export default class TextField extends PureComponent {
       toValue: this.labelState(),
       useNativeDriver: true,
       duration,
+      useNativeDriver: true
     };
 
     startAnimation(labelAnimation, options);
@@ -572,7 +564,6 @@ export default class TextField extends PureComponent {
     let containerStyle =  {
       paddingLeft: contentInset.left,
       paddingRight: contentInset.right,
-      minHeight: contentInset.bottom,
     };
 
     let styleProps = {
