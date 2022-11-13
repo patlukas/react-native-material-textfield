@@ -605,6 +605,17 @@ export default class TextField extends PureComponent {
     let props = this.inputProps();
     let inputStyle = this.inputStyle();
 
+    let value = this.value();
+    if("data" in this.props && this.props.data.length &&  "value" in this.props.data[0] && "label" in this.props.data[0]) {
+      for(var i=0; i<this.props.data.length; i++) {
+        if(this.props.data[i].value == value) {
+          value = this.props.data[i].label;
+          value = 'string' === typeof value ? value : String(value);
+          break;
+        }
+      }
+    }
+    
     return (
       <TextInput
         selectionColor={tintColor}
@@ -618,7 +629,7 @@ export default class TextField extends PureComponent {
         onContentSizeChange={this.onContentSizeChange}
         onFocus={this.onFocus}
         onBlur={this.onBlur}
-        value={this.value()}
+        value={value}
         ref={this.inputRef}
       />
     );
