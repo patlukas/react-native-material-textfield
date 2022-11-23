@@ -443,8 +443,7 @@ export default class TextField extends PureComponent {
 
   inputProps() {
     let store = {};
-
-    for (let key in TextInput.propTypes) {
+    for (let key in this.inputRef) {
       if ('defaultValue' === key) {
         continue;
       }
@@ -601,7 +600,7 @@ export default class TextField extends PureComponent {
       tintColor,
       style: inputStyleOverrides,
     } = this.props;
-
+    
     let props = this.inputProps();
     let inputStyle = this.inputStyle();
 
@@ -615,13 +614,12 @@ export default class TextField extends PureComponent {
         }
       }
     }
-    
+    if("maxLength" in this.props) props["maxLength"] = this.props.maxLength;
     return (
       <TextInput
         selectionColor={tintColor}
 
         {...props}
-
         style={[styles.input, inputStyle, inputStyleOverrides]}
         editable={!disabled && editable}
         onChange={this.onChange}
