@@ -157,8 +157,8 @@ export default class TextField extends PureComponent {
     this.focused = false;
 
     let { value: text, error, fontSize } = this.props;
-
-    let labelState = labelStateFromProps(this.props, { text })? 1 : 0;
+    const textVal = labelStateFromProps(this.props, { text })
+    let labelState = textVal === undefined || textVal === null ? 0 : 1;
     let focusState = errorStateFromProps(this.props)? -1 : 0;
 
     this.state = {
@@ -614,7 +614,8 @@ export default class TextField extends PureComponent {
         }
       }
     }
-    if("maxLength" in this.props) props["maxLength"] = this.props.maxLength;
+    if("maxLength" in this.props) props["maxLength"] = this.props.maxLength; 
+    if("onEndEditing" in this.props) props["onEndEditing"] = this.props.onEndEditing; 
     return (
       <TextInput
         selectionColor={tintColor}
@@ -628,7 +629,7 @@ export default class TextField extends PureComponent {
         onFocus={this.onFocus}
         onBlur={this.onBlur}
         value={value}
-        ref={this.inputRef}
+         ref={this.inputRef}
       />
     );
   }
