@@ -27,7 +27,7 @@ function labelStateFromProps(props, state) {
   let { placeholder, defaultValue } = props;
   let { text, receivedFocus } = state;
 
-  return !!(placeholder || (text !== undefined && text !== null) || (!receivedFocus && defaultValue));
+  return !!(placeholder || (text !== undefined && text !== null && text !== "") || (!receivedFocus && defaultValue));
 }
 
 function errorStateFromProps(props, state) {
@@ -607,7 +607,7 @@ export default class TextField extends PureComponent {
     if("data" in this.props && this.props.data.length &&  "value" in this.props.data[0] && "label" in this.props.data[0]) {
       if(value !== "") {
         for(var i=0; i<this.props.data.length; i++) {
-          if(this.props.data[i].value.toString() == value.toString()) {
+          if(this.props.data[i].value == value) {
             value = this.props.data[i].label;
             value = 'string' === typeof value ? value : String(value);
             break;
