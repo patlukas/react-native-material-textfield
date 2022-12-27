@@ -597,7 +597,7 @@ export default class TextField extends PureComponent {
       disabled,
       editable,
       tintColor,
-      style: inputStyleOverrides,
+      inputStyleOverrides
     } = this.props;
     
     let props = this.inputProps();
