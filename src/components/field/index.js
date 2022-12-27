@@ -616,6 +616,7 @@ export default class TextField extends PureComponent {
       }
     }
     if("maxLength" in this.props) props["maxLength"] = this.props.maxLength; 
+    if("keyboardType" in this.props) props["keyboardType"] = this.props.keyboardType; 
     if("onEndEditing" in this.props) props["onEndEditing"] = this.props.onEndEditing; 
     return (
       <TextInput
